@@ -11,7 +11,7 @@ import {
   Scene,
   TextureLoader,
   Vector3,
-  WebGLRenderer,
+  WebGLRenderer
 } from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "loaders";
@@ -75,7 +75,7 @@ camera.position.set(0, 4, 10);
 // レンダラー
 const renderer = new WebGLRenderer({
   alpha: true,
-  antialias: true,
+  antialias: true
 });
 renderer.shadowMap.enabled = true;
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -99,14 +99,14 @@ function iosOrAndrooid(aX, aY, aZ) {
 // texture 内に保存されている jpg のパス
 const textureUrls = [
   "textures/ground.jpg", // 道
-  "textures/goal.jpg", // ゴール
+  "textures/goal.jpg" // ゴール
 ];
 
 // 読み込む GLB モデルのパス
 const glbUrls = [
   "models/player.glb", // プレイヤー
   "models/houses.glb", // 周りの建物
-  "models/phone.glb", // スマホ
+  "models/phone.glb" // スマホ
 ];
 
 // エリアで用いられる 3D モデルと写真のダウンロード
@@ -270,19 +270,16 @@ function collision() {
 function animate() {
   const animationId = requestAnimationFrame(animate);
 
-  if (player){
-    // Mixer
-    // ここに追加
+  // Mixer
+  // ここに追加
 
+  if (player) {
     // 移動関数の実行
     // ここに追加
-
     // ジャンプ関数の実行
     // ここに追加
-
     // 衝突判定関数の実行
     // ここに追加
-
     // カメラの移動
     // ここに追加
   }
