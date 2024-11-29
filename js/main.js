@@ -57,6 +57,7 @@ let gamma;
 let aX;
 let aY;
 let aZ;
+let firstZ;
 
 let phone_list = [];
 let enemy_list = [];
@@ -88,13 +89,6 @@ const controls = new OrbitControls(camera, renderer.domElement);
 const light = new DirectionalLight(0xffffff, 1);
 light.position.set(10, 10, 10);
 scene.add(light);
-
-function iosOrAndrooid(aX, aY, aZ) {
-  let crossProduct = aX * aY;
-  if (crossProduct * aZ < 0) {
-    ios = false;
-  }
-}
 
 // texture 内に保存されている jpg のパス
 const textureUrls = [
@@ -175,6 +169,19 @@ document.addEventListener("DOMContentLoaded", function () {
   (aX = 0), (aY = 0), (aZ = 0);
   (alpha = 0), (beta = 0), (gamma = 0);
 
+  // 一度だけ実行
+  if (!isOnce) {
+    const handleDeviceMotion = (dat) => {
+      firstZ = dat.accelerationIncludingGravity.z;
+      if (firstZ > 0) {
+        ios = false;
+      }
+      isOnce = true;
+      window.removeEventListener("devicemotion", handleDeviceMotion); // リスナーを解除
+    };
+    window.addEventListener("devicemotion", handleDeviceMotion);
+  }
+
   // 加速度センサの値の取得
   if (ios) {
     // iOS の時
@@ -182,12 +189,6 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     // android の時
     // ここに追加
-  }
-
-  // 一度だけ実行
-  if (!isOnce) {
-    iosOrAndrooid(aX, aY, aZ);
-    isOnce = true;
   }
 
   // ジャイロセンサの値の取得
