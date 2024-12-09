@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (state === "granted") {
             window.location.href = "./race.html";
           } else {
-            alert("Permission not granted for DeviceOrientationEvent");
+            alert("権限の付与に失敗しました。");
           }
         })
         .catch((err) => console.error(err));

@@ -183,13 +183,15 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // 加速度センサの値の取得
-  if (ios) {
-    // iOS の時
-    // ここに追加
-  } else {
-    // android の時
-    // ここに追加
-  }
+  window.addEventListener("devicemotion", (dat) => {
+    if (ios) {
+      // iOS の時
+      // ここに追加
+    } else {
+      // android の時
+      // ここに追加
+    }
+  });
 
   // ジャイロセンサの値の取得
   // ここに追加
@@ -296,3 +298,5 @@ window.addEventListener("resize", () => {
 });
 
 animate();
+
+
