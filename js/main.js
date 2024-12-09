@@ -207,22 +207,22 @@ document.addEventListener("DOMContentLoaded", function () {
     result.innerHTML =
       "alpha: " +
       alpha.toFixed(2) +
-      "<br>" +
+      "<br />" +
       "beta: " +
       beta.toFixed(2) +
-      "<br>" +
+      "<br />" +
       "gamma: " +
       gamma.toFixed(2) +
-      "<br>" +
+      "<br />" +
       "aX" +
       aX +
-      "<br>" +
+      "<br />" +
       "aY" +
       aY +
-      "<br>" +
+      "<br />" +
       "aZ" +
       aZ +
-      "<br>";
+      "<br />";
   }
 });
 
@@ -298,5 +298,3 @@ window.addEventListener("resize", () => {
 });
 
 animate();
-
-
