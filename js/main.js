@@ -163,6 +163,26 @@ textureloader.load(
 
 // ゴールの描画
 // ここに記述
+// ゴールの描画
+textureloader.load(
+  textureUrls[1],
+  function (texture) {
+    geometry = new BoxGeometry(24, 10, 0.5); // 地面のジオメトリを作成 (BoxGeometry)
+    sphereMaterial = new MeshPhongMaterial();
+    sphereMaterial.map = texture;
+    goal = new Mesh(geometry, sphereMaterial); // メッシュを作成 (ジオメトリ + マテリアル)
+    goal.position.set(0, 5, -200);
+    goalBoundingBox = new Box3().setFromObject(goal);
+    // ground.receiveShadow = true; // 影を受け取る設定
+    scene.add(goal);
+  },
+  undefined,
+  function (error) {
+    console.error(error);
+  }
+);
+
+
 
 // センサの値の読み取り
 document.addEventListener("DOMContentLoaded", function () {
